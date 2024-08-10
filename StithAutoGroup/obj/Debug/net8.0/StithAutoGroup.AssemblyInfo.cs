@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StithAutoGroup")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1307056a91e93aa08e58ea07c3a5b0d0469571db")]
 [assembly: System.Reflection.AssemblyProductAttribute("StithAutoGroup")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StithAutoGroup")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
