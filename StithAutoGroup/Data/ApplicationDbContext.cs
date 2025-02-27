@@ -15,7 +15,7 @@ namespace StithAutoGroup.Data
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Salesperson> Salespersons { get; set; }
-        public DbSet<SalesInvoice> SalesInvoices { get; set; }
+        public DbSet<SalesInvoice> Sales_Invoices { get; set; }
     }
     //public class ApplicationDbContext : DbContext
     //{
@@ -25,7 +25,7 @@ namespace StithAutoGroup.Data
 
     //    public DbSet<Vehicle> Vehicles { get; set; }
     //    public DbSet<Customer> Customers { get; set; }
-    //    public DbSet<Salesperson> Salespersons{ get; set; }
+    //    public DbSet<Salesperson> Salespersons { get; set; }
     //    public DbSet<SalesInvoice> SalesInvoices { get; set; }
     //}
 }

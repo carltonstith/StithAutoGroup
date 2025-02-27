@@ -1,7 +1,9 @@
-﻿namespace StithAutoGroup.Models
+﻿namespace StithAutoGroup.Dtos
 {
-    public class UpdateVehicleDto
+    public class VehicleDto
     {
+        //[Key]
+        public int Vehicle_Id { get; set; }
         public string? Make { get; set; }
         public string? Model { get; set; }
         public int Year { get; set; }

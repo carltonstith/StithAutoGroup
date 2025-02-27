@@ -9,10 +9,10 @@ namespace StithAutoGroup.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SalespersonController : ControllerBase
+    public class SalespersonsController : ControllerBase
     {
         private readonly ApplicationDbContext dbContext;
-        public SalespersonController(ApplicationDbContext dbContext)
+        public SalespersonsController(ApplicationDbContext dbContext)
         {
             this.dbContext = dbContext;
         }

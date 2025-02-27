@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using StithAutoGroup.Data;
 using StithAutoGroup.Models;
 using StithAutoGroup.Models.Entities;
@@ -17,20 +18,20 @@ namespace StithAutoGroup.Controllers
             this.dbContext = dbContext;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet]
-        public IActionResult GetAllVehicles()
+        public async Task<IActionResult> GetAllVehicles()
         {
-            var allVehicles = dbContext.Vehicles.ToList();
+            var allVehicles = await dbContext.Vehicles.ToListAsync();
 
             return Ok(allVehicles);
         }
 
         [HttpGet]
         [Route("{id}")]
-        public IActionResult GetVehicleById(int id)
+        public async Task<IActionResult> GetVehicleById([FromRoute] int id)
         {
-            var vehicle = dbContext.Vehicles.Find(id);
+            var vehicle = await dbContext.Vehicles.FindAsync(id);
 
             if (vehicle == null)
             {
@@ -41,7 +42,7 @@ namespace StithAutoGroup.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddVehicle([FromBody] AddVehicleDTO addVehicleDto)
+        public async Task<IActionResult> AddVehicle([FromBody] AddVehicleDTO addVehicleDto)
         {
             var vehicleEntity = new Vehicle
             {
@@ -56,15 +57,15 @@ namespace StithAutoGroup.Controllers
                 Engine = addVehicleDto.Engine,
                 Transmission = addVehicleDto.Transmission
             };
-            dbContext.Vehicles.Add(vehicleEntity);
-            dbContext.SaveChanges();
+            await dbContext.Vehicles.AddAsync(vehicleEntity);
+            await dbContext.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetAllVehicles), new { id = vehicleEntity.Vehicle_Id }, vehicleEntity);
         }
 
         [HttpPut]
         [Route("{id}")]
-        public IActionResult UpdateVehicle(int id, [FromBody] UpdateVehicleDto updateVehicleDto)
+        public async Task<IActionResult> UpdateVehicle(int id, [FromBody] UpdateVehicleDto updateVehicleDto)
         {
 
             var vehicle = dbContext.Vehicles.Find(id);
@@ -85,7 +86,7 @@ namespace StithAutoGroup.Controllers
             vehicle.Engine = updateVehicleDto.Engine;
             vehicle.Transmission = vehicle.Transmission;
             
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
 
             return Ok(vehicle);
         }

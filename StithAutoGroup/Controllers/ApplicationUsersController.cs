@@ -12,14 +12,14 @@ namespace StithAutoGroup.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ApplicationUserController : ControllerBase
+    public class ApplicationUsersController : ControllerBase
     {
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
         private readonly ApplicationSettings _appSettings;
         private readonly IConfiguration configuration;
 
-        public ApplicationUserController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IOptions<ApplicationSettings> appSettings, IConfiguration configuration)
+        public ApplicationUsersController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IOptions<ApplicationSettings> appSettings, IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
